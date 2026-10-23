@@ -1,0 +1,156 @@
+/* Exyn IR banner — Concept C: Concept A's slides + investor
+ * email sign-up — 300x600, 4-slide carousel
+ *
+ * Standard HTML5-ad clickTag pattern: ad servers (GAM, DV360, StackAdapt,
+ * etc.) look for a top-level `clickTag` variable and rewrite it at
+ * trafficking time. Keep it exactly as a plain global var assignment —
+ * don't wrap it in a function or bundle it — or most exchanges' macro
+ * scanners won't find it.
+ */
+var clickTag = "https://investorroadshow.exyn.com/";
+
+// C ships WITHOUT a list endpoint and WITHOUT any code that collects an email: the button opens the company's own
+// investor-alert form (SIGNUP_FALLBACK_URL) in a new tab; a typed address is only format-checked in the browser, never sent or stored. (Wiring a real list later means
+// re-scaffolding this script from the skill template and adding consent language; some ad networks bar collecting an
+// email inside a display creative.)
+var SIGNUP_ENDPOINT = "";
+var SIGNUP_FALLBACK_URL = "https://investors.exyn.com/email-alerts";
+
+(function () {
+  // C-override: stock consent text only when an endpoint is set
+  if (SIGNUP_ENDPOINT) { var cn = document.getElementById('signup-consent'); if (cn) cn.textContent = "By subscribing, you consent to receive investor-related emails from Exyn Technologies, Inc. You can unsubscribe at any time."; }
+  var banner = document.getElementById('banner');
+  var form = document.getElementById('signup');
+  var emailInput = document.getElementById('signup-email');
+  var msg = document.getElementById('signup-msg');
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.dot'));
+  var prevBtn = document.getElementById('arrow-prev');
+  var nextBtn = document.getElementById('arrow-next');
+
+  var current = 0;
+  var AUTO_MS = 6000;
+  var timer = null;
+  var hovering = false, typing = false;
+
+  function goTo(index) {
+    index = (index + slides.length) % slides.length;
+    if (index === current) return;
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function restartAuto() {
+    if (timer) clearInterval(timer);
+    if (hovering || typing) return;
+    timer = setInterval(next, AUTO_MS);
+  }
+
+  // Manual controls stop propagation so they don't also fire the
+  // whole-banner click-through below.
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function (e) {
+      e.stopPropagation();
+      goTo(i);
+      restartAuto();
+    });
+  });
+  nextBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    next();
+    restartAuto();
+  });
+  prevBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    prev();
+    restartAuto();
+  });
+
+  // Pause the auto-rotation while a desktop viewer is interacting with it.
+  // Also hold it while the email field has focus, so the slides don't
+  // keep flipping behind someone mid-typing (mobile has no mouseleave).
+  // Rotation resumes on mouseleave / blur, unless the other is still true.
+  function pause() { if (timer) clearInterval(timer); }
+  banner.addEventListener('mouseenter', function () { hovering = true; pause(); });
+  banner.addEventListener('mouseleave', function () { hovering = false; restartAuto(); });
+  emailInput.addEventListener('focus', function () { typing = true; pause(); });
+  emailInput.addEventListener('blur', function () { typing = false; restartAuto(); });
+
+  // ── In-banner email sign-up ────────────────────────────────────
+  var EMAIL_RE = /^[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)*\.[^\s@.]{2,}$/;   // no spaces, no '..'
+
+  function showError(text) {
+    form.classList.remove('is-error');
+    void form.offsetWidth; // restart the shake animation
+    form.classList.add('is-error');
+    msg.textContent = text;
+  }
+  function showDone() {
+    form.classList.remove('is-error', 'is-sending');
+    form.classList.add('is-done');
+    document.getElementById('signup-done').setAttribute('aria-hidden', 'false');
+    emailInput.blur();
+  }
+
+  emailInput.addEventListener('input', function () {
+    if (form.classList.contains('is-error')) {
+      form.classList.remove('is-error');
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = emailInput.value.trim();
+    // C-override: an empty field is fine; a typed address is only format-checked here in the browser (never sent, stored or used).
+    if (email && !EMAIL_RE.test(email)) {
+      showError('Please enter a valid email address');
+      emailInput.focus();
+      return;
+    }
+
+    if (!SIGNUP_ENDPOINT) {
+      // No list endpoint yet: the address isn't captured here, so don't
+      // claim a subscription. Point the visitor at the tab just opened.
+      document.getElementById('signup-done-text').textContent =
+        'Opened in a new tab: enter your email there.';
+      window.open(SIGNUP_FALLBACK_URL, '_blank', 'noopener');
+      showDone();
+      return;
+    }
+
+    // C-override: collection removed. This creative never POSTs an email; the sign-up is the company's own page.
+    return;
+  });
+
+  // Clicks anywhere else on the creative go to the single clickTag URL;
+  // the email field, Subscribe, the privacy link and carousel controls are excluded.
+  banner.addEventListener('click', function (e) {
+    // Only the controls are excluded; the consent text and disclosure line click through like the rest.
+    if (e.target.closest('#signup-row, #signup-consent a, .dot, .nav-arrow')) return;
+    window.open(clickTag, '_blank', 'noopener');
+  });
+
+  // Fire the entrance sequence + start the carousel once the layout has
+  // actually painted, not just on script execution — avoids the stagger
+  // jumping straight to its end state on a slow/cold iframe load.
+  function goLive() {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        banner.classList.add('is-live');
+        slides[0].classList.add('active');
+        restartAuto();
+      });
+    });
+  }
+  if (document.readyState === 'complete') goLive();
+  else window.addEventListener('load', goLive);
+
+  // Impression pixel goes here once this is served through an ad server —
+  // e.g. new Image().src = 'https://your-tracker/impression?...';
+})();

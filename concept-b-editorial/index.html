@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<meta name="ad.size" content="width=300,height=600">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=300,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Exyn Technologies, Inc. — Investor Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Zalando+Sans+Expanded:wght@700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--
+  Exyn Technologies, Inc. — IR display banner, 300x600 — Concept B: Editorial / Light.
+  Promotes: https://investorroadshow.exyn.com/
+  Built from the IR roadshow page's light stock: white and #edf1f5 grounds, ink #14161d, green-ink #4e6d1a for text on light, Figtree
+  headlines and Zalando Sans Expanded labels, square corners. Figure 1 redraws the company's corner-bracket mark as a capture frame;
+  Figure 2's bar width = minutes x scale; Figure 3 follows the company's own ExynAI stack diagram; Figure 4's bar height = US$M x scale
+  (see .tmp/gen_b.py and audit_numbers.py). Every figure comes from .tmp/facts.md.
+-->
+
+<div id="banner" aria-label="Exyn Technologies, Inc. investor relations advertisement">
+
+  <div id="top-rule"></div>
+
+  <header id="top-bar" class="reveal" data-delay="0">
+    <div id="logo"><img class="lockup" src="assets/logo.svg" alt="Exyn" width="86" height="21"></div>
+    <div id="masthead">NASDAQ:&nbsp;EXYN&nbsp;·&nbsp;PHILADELPHIA,&nbsp;PA</div>
+  </header>
+
+  <div id="slides">
+    <!-- Slide 1 -->
+    <section class="slide" data-index="0">
+      <div class="slide-copy">
+        <p class="eyebrow">Fig. 01 · What it is</p>
+        <h1>Autonomous 3D<br>mapping where GPS<br><em>can't&nbsp;reach.</em></h1>
+        <p class="lead">Exyn makes autonomous mapping systems and ExynAI software for dark, disconnected sites such as mines and tunnels.</p>
+
+        <figure class="fig-card">
+          <div class="fig-bar"><span>Figure 1</span><span>Mapping where GPS can't reach</span></div>
+          <div class="fig-body">
+            <svg viewBox="0 0 240 108" role="img" aria-label="Mapping where GPS can't reach">
+              <rect class="fig-tun" x="78.0" y="22.0" width="84" height="64"/>
+              <rect class="fig-tun" x="91.0" y="32.0" width="58" height="44"/>
+              <rect class="fig-tun" x="101.0" y="39.5" width="38" height="29"/>
+              <rect class="fig-tun" x="108.5" y="45.0" width="23" height="18"/>
+              <rect class="fig-tun" x="114.0" y="49.2" width="12" height="9.5"/>
+              <path class="fig-diag" d="M78.0 22.0 L114.0 49.2 M78.0 86.0 L114.0 58.8 M162.0 22.0 L126.0 49.2 M162.0 86.0 L126.0 58.8"/>
+              <path class="fig-br " d="M86 14 H66 V34"/>
+              <path class="fig-br lime" d="M154 14 H174 V34"/>
+              <path class="fig-br " d="M86 94 H66 V74"/>
+              <path class="fig-br " d="M154 94 H174 V74"/>
+              <path class="fig-x" d="M6 32 l4 4 M10 32 l-4 4"/><text class="fig-cap" x="15" y="36">NO GPS</text>
+              <path class="fig-x" d="M6 46 l4 4 M10 46 l-4 4"/><text class="fig-cap" x="15" y="50">NO WI-FI OR LTE</text>
+              <path class="fig-x" d="M6 60 l4 4 M10 60 l-4 4"/><text class="fig-cap" x="15" y="64">NO PRIOR MAP</text>
+              <text class="fig-cap" x="180" y="40">LIVE 3D MAP,</text>
+              <text class="fig-cap" x="180" y="51">BUILT ON THE</text>
+              <text class="fig-cap" x="180" y="62">ROBOT</text>
+              <text class="fig-note" x="0" y="104">Schematic of the company's description; not to scale.</text>
+            </svg>
+          </div>
+        </figure>
+
+        <dl class="kf"><dt>Autonomy fielded since</dt><dd>2016 <em>company says; CEO letter, Sep 28</em></dd></dl>
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide" data-index="1">
+      <div class="slide-copy">
+        <p class="eyebrow">Fig. 02 · One customer's result</p>
+        <h1>Exyn says one mine's<br>scan time fell from<br>~40 min to <em>about&nbsp;5.</em></h1>
+        <p class="lead">At one customer's mine in Turkey, the company's Jul 30 release says Exyn Nexys cut capture time per scan from about 40 minutes to about 5, compared with the mine's previous survey methods.</p>
+
+        <figure class="fig-card">
+          <div class="fig-bar"><span>Figure 2</span><span>Survey capture time per scan</span></div>
+          <div class="fig-body">
+            <svg viewBox="0 0 240 96" role="img" aria-label="Survey capture time per scan">
+              <text class="fig-row" x="0" y="26.0">Before</text>
+              <rect class="seg-before" x="52.0" y="14.0" width="132.0" height="17"/>
+              <text class="fig-val" x="189.0" y="26.0">~40 min</text>
+              <text class="fig-row" x="0" y="56.0">After</text>
+              <rect class="seg-after" x="52.0" y="44.0" width="16.5" height="17"/>
+              <text class="fig-val strong" x="73.5" y="56.0">~5 min</text>
+              <path class="fig-base" d="M52.0 10 V66.0"/>
+              <text class='fig-note' x='0' y='82.0'>Capture time per scan at one customer's mine. Company release, Jul 30, 2026.</text>
+              <text class="fig-note" x="0" y="91.0">Bars to one scale.</text>
+            </svg>
+          </div>
+        </figure>
+
+        <dl class="kf"><dt>Per scan, one customer</dt><dd>~40 → ~5 min <em>company-reported</em></dd></dl>
+      </div>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide" data-index="2">
+      <div class="slide-copy">
+        <p class="eyebrow">Fig. 03 · Platform</p>
+        <h1>Exyn says one engine<br>runs on drones and<br><em>ground&nbsp;robots.</em></h1>
+        <p class="lead">The company says ExynAI runs on the robot itself, with no cloud. Its Nexys mapping payload mounts on drones and ground robots, or is carried by hand.</p>
+
+        <figure class="fig-card">
+          <div class="fig-bar"><span>Figure 3</span><span>The company's ExynAI stack</span></div>
+          <div class="fig-body">
+            <svg viewBox="0 0 240 117" role="img" aria-label="The company's ExynAI stack">
+              <polygon class="fig-layer lay-base" points="120,52 196,74 120,96 44,74"/>
+              <text class="fig-layer-t lay-base" x="120" y="76.4" text-anchor="middle">ROBOT PLATFORM</text>
+              <polygon class="fig-layer lay-ai" points="120,26 196,48 120,70 44,48"/>
+              <text class="fig-layer-t lay-ai" x="120" y="50.4" text-anchor="middle">EXYNAI</text>
+              <polygon class="fig-layer lay-top" points="120,0 196,22 120,44 44,22"/>
+              <text class="fig-layer-t lay-top" x="120" y="24.4" text-anchor="middle">AUTONOMOUS MAPPING MISSIONS</text>
+              <text class="fig-cap" x="0" y="104">DRONES · GROUND ROBOTS · HANDHELD</text>
+              <text class="fig-note" x="0" y="114">After the company's own ExynAI diagram.</text>
+            </svg>
+          </div>
+        </figure>
+
+        <dl class="kf"><dt>Accuracy, per the prospectus</dt><dd>~1 cm <em>company-stated</em></dd></dl>
+      </div>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide" data-index="3">
+      <div class="slide-copy">
+        <p class="eyebrow">Fig. 04 · Q2 2026, unaudited</p>
+        <h1>Revenue down 30%,<br>gross margin up,<br><em>net&nbsp;loss&nbsp;wider.</em></h1>
+        <p class="lead"><strong>Cash: about $4.5M at Aug 19, which the company expects is not enough for the next 12 months. Management has concluded substantial doubt exists about its ability to continue as a going concern.</strong></p>
+
+        <figure class="fig-card">
+          <div class="fig-bar"><span>Figure 4</span><span>Q2 revenue and cash · US$M</span></div>
+          <div class="fig-body">
+            <svg viewBox="0 0 240 115" role="img" aria-label="Q2 revenue and cash · US$M">
+              <path class="fig-base" d="M8 86.0 H232"/>
+              <rect class="b-prior" x="22" y="74.6" width="30.0" height="11.4"/>
+              <text class="fig-val" x="37.0" y="71.1" text-anchor="middle">$1.36M</text>
+              <text class="fig-cap" x="37.0" y="94.5" text-anchor="middle">Q2 2025</text>
+              <rect class="b-now" x="66" y="78.0" width="30.0" height="8.0"/>
+              <text class="fig-val strong" x="81.0" y="74.5" text-anchor="middle">$0.95M</text>
+              <text class="fig-cap" x="81.0" y="94.5" text-anchor="middle">Q2 2026</text>
+              <rect class="b-cash30" x="134" y="20.2" width="30.0" height="65.8"/>
+              <text class="fig-val" x="149.0" y="16.7" text-anchor="middle">$7.8M</text>
+              <text class="fig-cap" x="149.0" y="94.5" text-anchor="middle">Cash,</text>
+              <text class="fig-cap" x="149.0" y="101.5" text-anchor="middle">Jun 30</text>
+              <rect class="b-cash19" x="178" y="48.3" width="30.0" height="37.7"/>
+              <text class="fig-val strong" x="193.0" y="44.8" text-anchor="middle">$4.5M</text>
+              <text class="fig-cap" x="193.0" y="94.5" text-anchor="middle">Cash,</text>
+              <text class="fig-cap" x="193.0" y="101.5" text-anchor="middle">Aug 19</text>
+              <text class="fig-grp" x="59" y="8" text-anchor="middle">Q2 REVENUE</text>
+              <text class="fig-grp" x="171" y="8" text-anchor="middle">CASH ON HAND</text>
+              <path class="fig-sep" d="M110 4 V104.0"/>
+              <text class="fig-note" x="0" y="111">One scale, US$ millions. Q2 unaudited; cash per the 10-Q/A.</text>
+            </svg>
+          </div>
+        </figure>
+
+        <dl class="kf two"><div><dt>Gross margin</dt><dd>46.9% <em>vs 40.6% in Q2 2025</em></dd></div><div><dt>Q2 net loss</dt><dd>$6.9M <em>vs $2.9M in Q2 2025</em></dd></div></dl>
+      </div>
+    </section>
+
+  </div>
+
+  <button type="button" class="nav-arrow" id="arrow-prev" aria-label="Previous slide">
+    <svg viewBox="0 0 16 16"><path d="M10 3 6 8l4 5" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button type="button" class="nav-arrow" id="arrow-next" aria-label="Next slide">
+    <svg viewBox="0 0 16 16"><path d="M6 3l4 5-4 5" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <div id="dots" class="reveal" role="tablist" aria-label="Slide selector">
+    <button class="dot active" data-index="0" aria-label="Slide 1: What it is"></button>
+    <button class="dot" data-index="1" aria-label="Slide 2: One customer's result"></button>
+    <button class="dot" data-index="2" aria-label="Slide 3: Platform"></button>
+    <button class="dot" data-index="3" aria-label="Slide 4: Financials"></button>
+  </div>
+
+  <div id="bottom-fixed" class="reveal" data-delay="1">
+    <a href="#" id="cta">
+      <span>View Investor Overview</span>
+      <svg viewBox="0 0 16 16" id="cta-arrow" aria-hidden="true"><path d="M4 8h8M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <div id="fls"><strong>Risks: going-concern doubt, a history of losses, cash of about $4.5M at Aug 19, ineffective controls, CEO resigned after an investigation.</strong> Forward-looking statements; not an offer. Management has concluded substantial doubt exists about going concern; the company expects cash will not cover the next 12 months, more funding is not assured and new equity would likely be significantly dilutive. The former CEO resigned Aug 19; an Audit Committee investigation found he improperly used ~$286,000 of company funds for personal expenses, and he agreed to repay it (no terms stated). Disclosure controls were not effective at Jun 30; a new material weakness was found. SEC or Nasdaq inquiries and shareholder suits are possible. One customer was 13% of Q2 revenue. Most Q2 revenue was hardware sales.</div>
+  </div>
+
+  <!-- Standard HTML5-ad click-tag plumbing -->
+  <div id="click-tag-wrapper"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
